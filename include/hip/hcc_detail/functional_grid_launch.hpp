@@ -95,6 +95,18 @@ inline void hipLaunchKernelGGL(F kernel, const dim3& numBlocks, const dim3& dimB
                                      sharedMemBytes, stream, &config[0]);
 }
 
+template <typename... Args>
+inline void hipLaunchKernelGGL2(std::uintptr_t function_address kernel, const dim3& numBlocks, const dim3& dimBlocks,
+                               std::uint32_t sharedMemBytes, hipStream_t stream, Args... args) {
+    auto kernarg = hip_impl::make_kernarg(std::move(args)...);
+    std::size_t kernarg_size = kernarg.size();
+
+    void* config[] = {HIP_LAUNCH_PARAM_BUFFER_POINTER, kernarg.data(), HIP_LAUNCH_PARAM_BUFFER_SIZE,
+                      &kernarg_size, HIP_LAUNCH_PARAM_END};
+
+    hip_impl::hipLaunchKernelGGLImpl(kernel, numBlocks, dimBlocks, sharedMemBytes, stream, &config[0]);
+}
+
 template <typename... Args, typename F = void (*)(hipLaunchParm, Args...)>
 inline void hipLaunchKernel(F kernel, const dim3& numBlocks, const dim3& dimBlocks,
                             std::uint32_t groupMemBytes, hipStream_t stream, Args... args) {
