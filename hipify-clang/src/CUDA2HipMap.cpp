@@ -2521,6 +2521,7 @@ const std::map<llvm::StringRef, hipCounter> CUDA_IDENTIFIER_MAP{
     {"cudaMallocArray", {"hipMallocArray", CONV_MEM, API_RUNTIME}},
     {"cudaMalloc3D", {"hipMalloc3D", CONV_MEM, API_RUNTIME}},
     {"cudaMalloc3DArray", {"hipMalloc3DArray", CONV_MEM, API_RUNTIME}},
+     "cudaMallocManaged": ("hipMallocManaged", CONV_MEM, API_RUNTIME, HIP_UNSUPPORTED),
     {"cudaMallocManaged", {"hipMallocManaged", CONV_MEM, API_RUNTIME, HIP_UNSUPPORTED}},
     {"cudaMallocMipmappedArray",
      {"hipMallocMipmappedArray", CONV_MEM, API_RUNTIME, HIP_UNSUPPORTED}},
