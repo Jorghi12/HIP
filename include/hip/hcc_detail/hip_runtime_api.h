@@ -2424,7 +2424,7 @@ hipError_t hipIpcCloseMemHandle(void* devPtr);
 Not implemented so throws hipErrorNotSupported.
 */
 
-hipError_t hipMallocManaged(void** devPtr, size_t size, unsigned int flags = cudaMemAttachGlobal);
+hipError_t hipMallocManaged(void** devPtr, size_t size, unsigned int flags = hipMemAttachGlobal);
 
 // hipError_t hipIpcGetMemHandle(hipIpcMemHandle_t* handle, void* devPtr);
 // hipError_t hipIpcCloseMemHandle(void *devPtr);
