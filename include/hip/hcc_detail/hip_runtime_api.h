@@ -160,7 +160,7 @@ enum hipLimit_t {
 #define hipArraySurfaceLoadStore 0x02
 #define hipArrayCubemap 0x04
 #define hipArrayTextureGather 0x08
-
+#define hipMemAttachGlobal 0x09
 /*
  * @brief hipJitOption
  * @enum
