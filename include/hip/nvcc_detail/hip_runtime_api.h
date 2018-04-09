@@ -160,6 +160,7 @@ typedef cudaSurfaceObject_t hipSurfaceObject_t;
 // Flags that can be used with hipStreamCreateWithFlags
 #define hipStreamDefault cudaStreamDefault
 #define hipStreamNonBlocking cudaStreamNonBlocking
+#define hipMemAttachGlobal cudaMemAttachGlobal
 
 #define hipChannelFormatDesc cudaChannelFormatDesc
 #define hipResourceDesc cudaResourceDesc
