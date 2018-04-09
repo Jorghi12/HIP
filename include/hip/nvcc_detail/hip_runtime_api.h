@@ -594,6 +594,10 @@ inline static hipError_t hipGetDevice(int* device) {
 inline static hipError_t hipIpcCloseMemHandle(void* devPtr) {
     return hipCUDAErrorTohipError(cudaIpcCloseMemHandle(devPtr));
 }
+    
+inline static hipError_t hipMallocManaged(void** devPtr, size_t size, unsigned int flags = hipMemAttachGlobal) {
+    return hipCUDAErrorTohipError(cudaMallocManaged(devPtr));
+}
 
 inline static hipError_t hipIpcGetEventHandle(hipIpcEventHandle_t* handle, hipEvent_t event) {
     return hipCUDAErrorTohipError(cudaIpcGetEventHandle(handle, event));
