@@ -2419,7 +2419,12 @@ hipError_t hipIpcOpenMemHandle(void** devPtr, hipIpcMemHandle_t handle, unsigned
  *
  */
 hipError_t hipIpcCloseMemHandle(void* devPtr);
+ 
+/* @brief Allocates managed memory.
+Not implemented so throws hipErrorNotSupported.
+*/
 
+hipError_t hipMallocManaged(void** devPtr, size_t size, unsigned int flags = cudaMemAttachGlobal);
 
 // hipError_t hipIpcGetMemHandle(hipIpcMemHandle_t* handle, void* devPtr);
 // hipError_t hipIpcCloseMemHandle(void *devPtr);
