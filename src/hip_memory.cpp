@@ -258,6 +258,9 @@ hipError_t hipMalloc(void** ptr, size_t sizeBytes) {
     return ihipLogStatus(hip_status);
 }
 
+hipError_t hipMallocManaged(void** devPtr, size_t size, unsigned int flags = hipMemAttachGlobal) {
+  return hipErrorNotSupported;
+}
 
 hipError_t hipHostMalloc(void** ptr, size_t sizeBytes, unsigned int flags) {
     HIP_INIT_SPECIAL_API((TRACE_MEM), ptr, sizeBytes, flags);
